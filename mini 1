@@ -288,7 +288,6 @@ $scope.tasks = [
 'Task 2',
 'Task 3'
 ];
-21CSL581)
 $scope.newTask = '';
 $scope.editingTaskIndex = null;
 $scope.addTask = function () {
