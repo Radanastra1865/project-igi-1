@@ -1,0 +1,37 @@
+2.    DevelopanAngularJSapplicationthatdisplaysalistofshoppingitems.Allowuserstoaddand
+ removeitemsfromthe
+ listusingdirectivesandcontrollers.Note:Thedefaultvaluesofitemsmaybeincludedintheprogram.
+
+
+ <htmlng-app="shoppingApp">
+ <head>
+  <title>AngularJSShoppingList</title>
+  <scriptsrc="index.js"></script>
+ </head>
+ <bodyng-controller="shoppingCtrl">
+  <h2>ShoppingList</h2>
+  <table>
+    <trng-repeat="iteminshoppingItems">
+      <td>{{item}}</td>
+      <td><buttonng-click="removeItem($index)">Remove</button></td>
+    </tr>
+  </table>
+  <inputtype="text"ng-model="newItem"placeholder="Addanewitem">
+  <buttonng-click="addItem()">AddItem</button>
+  <script>
+    angular.module('shoppingApp', [])
+      .controller('shoppingCtrl',function($scope){
+        $scope.shoppingItems=['Apples', 'Bananas', 'Bread', 'Milk'];
+        $scope.addItem=function(){
+          if($scope.newItem){
+            $scope.shoppingItems.push($scope.newItem);
+            $scope.newItem='';
+          }
+        };
+        $scope.removeItem=function(index){
+          $scope.shoppingItems.splice(index,1);
+        };
+      });
+  </script>
+ </body>
+ </html>
