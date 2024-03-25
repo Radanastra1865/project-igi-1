@@ -1,1 +1,42 @@
+4.WriteanAngularJSapplicationthatcancalculatefactorialandcomputesquarebasedongiven
+ userinput.
 
+
+
+ <htmlng-app="mathApp">
+ <head>
+  <title>AngularJSMathOperations</title>
+  <scriptsrc="index.js"></script>
+ </head>
+ <bodyng-controller="mathController">
+  <h2>MathOperations</h2>
+  EnteraNumber:
+  <inputtype="number"ng-model="inputNumber"/>
+  <buttonng-click="calculateFactorial()">CalculateFactorial</button>
+  <buttonng-click="calculateSquare()">CalculateSquare</button>
+  <png-show="factorialResult!==undefined">Factorial:{{factorialResult}}</p>
+  <png-show="squareResult!==undefined">Square:{{squareResult}}</p>
+  <script>
+    varapp=angular.module('mathApp', []);
+    app.controller('mathController',function($scope){
+      $scope.calculateFactorial=function(){
+        if($scope.inputNumber>=0){
+          $scope.factorialResult=factorial($scope.inputNumber);
+        }else{
+          $scope.factorialResult='Cannotcalculatefactorialfornegativenumbers';
+        }
+      };
+      $scope.calculateSquare=function(){
+        $scope.squareResult=$scope.inputNumber*$scope.inputNumber;
+      };
+      functionfactorial(n){
+        if(n==0||n==1){
+          return1;
+        }else{
+          returnn*factorial(n-1);
+        }
+      }
+    });
+  </script>
+ </body>
+ </html>
