@@ -1,0 +1,34 @@
+1.DevelopAngularJSprogramthatallowsusertoinputtheirfirstnameand
+ lastnameanddisplaytheirfullname.Note:Thedefaultvaluesforfirstname
+ andlastnamemaybeincludedintheprogram.
+
+
+ <htmlng-app="nameApp">
+ <head>
+  <title>AngularJSFullNameExample</title>
+  <scriptsrc="index.js"></script>
+ </head>
+ <body>
+  <divng-controller="nameCtrl">
+    FirstName:
+    <inputtype="text"ng-model="firstName"placeholder="Enteryourfirstname"/>
+    <br/>
+    <br/>
+    LastName:
+    <inputtype="text"ng-model="lastName"placeholder="Enteryourlastname"/>
+    <br/>
+    <br/>
+    <buttonng-click="displayFullName()">DisplayFullName</button>
+    <h1>FullNameis:{{fullName}}</h1>
+  </div>
+  <script>
+    angular.module("nameApp", []).controller("nameCtrl",function($scope){
+      $scope.firstName="Raj";
+      $scope.lastName="Kumar";
+      $scope.displayFullName=function(){
+        $scope.fullName=$scope.firstName+""+$scope.lastName;
+      };
+    });
+  </script>
+ </body>
+ </html>
