@@ -1,0 +1,41 @@
+.DevelopAngularJSapplicationthatdisplaysadetailsofstudentsandtheirCGPA.Allowusersto
+ readthenumberof
+ studentsanddisplaythecount.Note:Studentdetailsmaybeincludedintheprogram.
+
+
+ <htmlng-app="studentApp">
+ <head>
+  <title>AngularJSStudentDetails</title>
+  <scriptsrc="index.js"></script>
+ </head>
+ <bodyng-controller="studentController">
+  <h2>StudentDetails</h2>
+  StudentName:
+  <inputtype="text"ng-model="name"/>
+  CGPA:
+  <inputtype="number"ng-model="cgpa"ng-min="1"ng-max="10"/>
+  <buttonng-click="addStudent()">AddStudent</button>
+  <p>TotalStudents:{{students.length}}</p>
+  <ul>
+    <ling-repeat="studentinstudents">
+      {{student.name}}-CGPA:{{student.cgpa}}
+    </li>
+  </ul>
+  <script>
+    varapp=angular.module('studentApp', []);
+    app.controller('studentController',function($scope){
+      $scope.students=[];
+      $scope.addStudent=function(){
+        if($scope.name&&$scope.cgpa){
+          $scope.students.push({
+            name:$scope.name,
+            cgpa:$scope.cgpa
+          });
+          $scope.name='';
+          $scope.cgpa='';
+        }
+      };
+    });
+  </script>
+ </body>
+ </html>
